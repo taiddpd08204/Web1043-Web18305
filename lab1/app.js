@@ -10,3 +10,4 @@ document.write("Kết quả tính tổng của " + a + " và " + b + " là: " + 
 console.log("Kết quả tính tổng của " + a + " và " + b + " là: " + c);
 
 // Liên kết vào file lab1.html
+var 
