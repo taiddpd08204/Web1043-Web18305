@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        background-color: rgb(30, 28, 28);
+      }
+      #result {
+        width: 340px;
+        height: 50px;
+        font-size: 24px;
+        text-align: center;
+        padding: 10px;
+        box-sizing: border-box;
+        background-color: rgb(255, 255, 255);
+        border-radius: 1rem;
+        margin-left: 40%;
+      }
+      button {
+        width: 80px;
+        height: 60px;
+        font-size: 24px;
+        background-color: rgb(164, 224, 246);
+        color: rgb(249, 0, 0);
+        font-weight: 700;
+        border-radius: 70px;
+      }
+      body {
+        text-align: center;
+      }
+      .tab-center {
+        margin-left: 40%;
+      }
+      tr {
+      }
+    </style>
+  </head>
+  <body>
+    <center><h1 style="color: rgb(250, 238, 12)">MÁY TÍNH</h1></center>
+    <div id="result"></div>
+    <script src="app.js"></script>
+    <div class="tab-center">
+      <table>
+        <tr>
+          <td>
+            <button
+              style="background-color: rgb(255, 255, 255)"
+              onclick="appendToResult()"
+            >
+              AC
+            </button>
+          </td>
+          <td>
+            <button
+              style="background-color: rgb(255, 255, 255)"
+              onclick="appendToResult()"
+            >
+              %
+            </button>
+          </td>
+          <td>
+            <button
+              style="background-color: rgb(255, 255, 255)"
+              onclick="appendToResult()"
+            >
+              ,
+            </button>
+          </td>
+          <td>
+            <button
+              style="background-color: rgb(255, 221, 0)"
+              onclick="appendToResult('+')"
+            >
+              +
+            </button>
+          </td>
+        </tr>
+        <tr>
+          <td><button onclick="appendToResult('7')">7</button></td>
+          <!-- appendToResult(value) dùng để thêm giá trị value vào phần hiển thị kết quả trên màn hình. -->
+          <td><button onclick="appendToResult('8')">8</button></td>
+          <td><button onclick="appendToResult('9')">9</button></td>
+          <td>
+            <button
+              style="background-color: rgb(255, 221, 0)"
+              onclick="appendToResult('-')"
+            >
+              -
+            </button>
+          </td>
+        </tr>
+        <tr>
+          <td><button onclick="appendToResult('4')">4</button></td>
+          <td><button onclick="appendToResult('5')">5</button></td>
+          <td><button onclick="appendToResult('6')">6</button></td>
+          <td>
+            <button
+              style="background-color: rgb(255, 221, 0)"
+              onclick="appendToResult('*')"
+            >
+              *
+            </button>
+          </td>
+        </tr>
+        <tr>
+          <td><button onclick="appendToResult('1')">1</button></td>
+          <td><button onclick="appendToResult('2')">2</button></td>
+          <td><button onclick="appendToResult('3')">3</button></td>
+          <td>
+            <button
+              style="background-color: rgb(255, 221, 0)"
+              onclick="appendToResult('/')"
+            >
+              /
+            </button>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <button
+              style="padding-left: 30px; padding-right: 130px"
+              onclick="appendToResult('0')"
+            >
+              0
+            </button>
+          </td>
+
+          <td><button onclick="clearResult()">C</button></td>
+          <!-- clearResult() dùng để xóa hết nội dung trong phần hiển thị kết quả trên màn hình. -->
+          <td>
+            <button
+              style="background-color: rgb(255, 221, 0)"
+              onclick="calculate()"
+            >
+              =
+            </button>
+          </td>
+        </tr>
+        <tr></tr>
+      </table>
+    </div>
+  </body>
+</html>

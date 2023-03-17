@@ -25,3 +25,4 @@ if (a + b > c && a + c > b && b + c > a) {
     document.write("Ba giá trị nhập vào không phải là 3 cạnh của một tam giác");
   }
   sty
+  
