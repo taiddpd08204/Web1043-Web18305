@@ -1,10 +1,10 @@
 // Hàm tính điểm trung bình
 function tinhDiemTrungBinh() {
   // Nhập điểm Toán, Lý, Hóa, Sinh
-  let diemToan = parseFloat(prompt("Nhập điểm Toán:"));
-  let diemLy = parseFloat(prompt("Nhập điểm Lý:"));
-  let diemHoa = parseFloat(prompt("Nhập điểm Hóa:"));
-  let diemSinh = parseFloat(prompt("Nhập điểm Sinh:"));
+  let diemToan = prompt("Nhập điểm Toán:");
+  let diemLy = prompt("Nhập điểm Lý:");
+  let diemHoa = prompt("Nhập điểm Hóa:");
+  let diemSinh = prompt("Nhập điểm Sinh:");
 
   // Kiểm tra điểm đầu vào
   if (diemToan >= 0 && diemToan <= 10 &&
