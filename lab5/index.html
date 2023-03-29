@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Todo List</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Todo List</h1>
+      <form>
+        <label for="task-name">Task Name:</label>
+        <input type="text" id="task-name" minlength="5" required />
+        <label for="task-desc">Task Description:</label>
+        <input type="text" id="task-desc" minlength="20" required />
+        <button type="submit" id="add-task">Add Task</button>
+      </form>
+      <ul id="task-list"></ul>
+    </div>
+
+    <div class="overlay" id="edit-overlay">
+      <div class="modal">
+        <h2>Edit Task</h2>
+        <form>
+          <label for="edit-name">Task Name:</label>
+          <input type="text" id="edit-name" minlength="5" required />
+          <label for="edit-desc">Task Description:</label>
+          <input type="text" id="edit-desc" minlength="20" required />
+          <button type="submit" id="save-task">Save</button>
+          <button type="button" id="cancel-task">Cancel</button>
+        </form>
+      </div>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
