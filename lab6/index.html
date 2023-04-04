@@ -305,7 +305,29 @@ span {
   transition: all 0.2s ease 0s;
   text-decoration: none !important;
 }
-
+.zoom{
+  width: max-content;
+  position: relative;
+}
+.zoom-img{
+  width: 700px;
+}
+.zoom-img:last-child(2){
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: scale(1.5);
+}
+.zoom{
+  --zoom-x: 50%;
+  --zoom-y: 50%;
+  --zoom-show: none;
+}
+.zoom-img:last-child(2){
+pointer-events: none;
+clip-path: circle(100px at var(--zoom-x) var(--zoom-y));
+display: var(--zoom-show);
+}
 </style>
 <body>
 </div>
@@ -316,16 +338,16 @@ span {
     <input type="radio" name="radio-btn" id="radio3" />
     <input type="radio" name="radio-btn" id="radio4" />
 
-    <div class="slide first">
-      <img src="img/book7.avif" alt="" />
+    <div class="zoom" class="slide first">
+      <img class="zoom-img" src="img/book7.avif" alt="" />
     </div>
-    <div class="slide">
+    <div class="zoom" class="zoom-img" class="slide">
       <img src="img/book6.avif" alt="" />
     </div>
-    <div class="slide">
+    <div class="zoom" class="zoom-img" class="slide">
       <img src="img/book5.avif" alt="" />
     </div>
-    <div class="slide">
+    <div class="zoom" class="zoom-img" class="slide">
       <img src="img/book8.avif" alt="" />
     </div>
     <div class="navigation-auto">
@@ -335,6 +357,7 @@ span {
       <div class="auto--btn4"></div>
     </div>
   </div>
+
   <div class="navigation-manual">
     <label for="radio1" class="manual-btn"></label>
     <label for="radio2" class="manual-btn"></label>
@@ -346,6 +369,20 @@ span {
     window.addEventListener("scroll",function(){
     var header = document.querySelector("header");
     header.classList.toggle("sticky",window.scrollY > 0);
+})
+let zoom = document.querySelector('.zoom');
+zoom.addEventListener('mousemove', (e) =>{
+  zoom.style.setProperty('--zoom-show', 'block');
+  let positionPx = e.x - zoom.getBoundingClientRect().left;
+  let positionPy = e.y - zoom.getBoundingClientRect().top;
+  let positionX = 100 * positionPx / zoom.offsetWidth;
+  let positionY = 100 * positionPy / zoom.offsetHeight;
+  zoom.style.setProperty('--zoom-x', positionX + '%' );
+  zoom.style.setProperty('--zoom-X', positionY + '%' );
+
+} )
+zoom.addEventListener('mouseout', ()=>{
+  zoom.style.setProperty('--zoom-show', 'none')
 })
 </script>
 </body>
