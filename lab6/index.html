@@ -1,389 +1,203 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+  </head>
+  <style>
+    .slider {
+      width: 630px;
+      height: 350px;
+      border-radius: 10px;
+      overflow: hidden;
+      float: right;
+      margin-top: 13%;
+      margin-right: 5%;
+    }
+    .slides {
+      width: 500%;
+      height: 500px;
+      display: flex;
+    }
+    .slides > input {
+      display: none;
+    }
+    .slide {
+      width: 20%;
+      transition: 2s;
+    }
+    .slide > img {
+      width: 634px;
+      height: 362px;
+    }
+    .navigation-manual {
+      position: absolute;
+      width: 629px;
+      margin-top: -171px;
+      display: flex;
+      justify-content: center;
+    }
+    .manual-btn {
+      border: 2px solid #40d3dc;
+      padding: 5px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: 1s;
+    }
+    .manual-btn:not(:last-child) {
+      margin-right: 40px;
+    }
+    .manual-btn:hover {
+      background-color: #40d3dc;
+    }
+    #radio1:checked ~ .first {
+      margin-left: 0;
+    }
+    #radio2:checked ~ .first {
+      margin-left: -20%;
+    }
+    #radio3:checked ~ .first {
+      margin-left: -40%;
+    }
+    #radio4:checked ~ .first {
+      margin-left: -60%;
+    }
+    .navigation-auto {
+      position: absolute;
+      display: flex;
+      width: 629px;
+      justify-content: center;
+      margin-top: 329px;
+    }
+    .navigation-auto > div {
+      border: 2px solid #40d3dc;
+      padding: 5px;
+      border-radius: 10px;
+      transition: 1s;
+    }
+    .navigation-auto div:not(:last-child) {
+      margin-right: 40px;
+    }
+    #radio1:checked _ .navigation-auto .auto-btn1 {
+      background-color: #40d3dc;
+    }
+    #radio1:checked _ .navigation-auto .auto-btn2 {
+      background-color: #40d3dc;
+    }
+    #radio1:checked _ .navigation-auto .auto-btn3 {
+      background-color: #40d3dc;
+    }
+    #radio1:checked _ .navigation-auto .auto-btn4 {
+      background-color: #40d3dc;
+    }
+    .texbook-baner {
+      background-color: rgb(255, 247, 247);
+      height: 50%;
+      display: flex;
+      justify-content: center;
+    }
+    figure.zoom {
+      background-position: 50% 50%;
+      position: relative;
+      width: 500px;
+      overflow: hidden;
+      cursor: zoom-in;
+    }
 
-</head>
-<style>
-    @import url("https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap");
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Popins", sans-serif;
-}
-body {
-  background: rgb(255, 255, 255);
-  min-height: 200vh;
-}
-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  transition: 0.6s;
-  padding: 40px 100px;
-  z-index: 1000000;
-}
-header.sticky {
-  padding: 5px 100px;
-  background: rgb(0, 0, 0);
-}
-header .logo {
-  position: relative;
-  font-weight: 800;
-  color: rgb(252, 4, 4);
-  text-decoration: none;
-  font-size: 2em;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  transition: 0.6s;
-}
-header > ul {
-  display: flex;
-  position: relative;
-  justify-content: center;
-  align-items: center;
-}
-header > ul > li {
-  position: relative;
-  list-style: none;
-}
-header > ul > li > a {
-  position: relative;
-  margin: 0 15px;
-  text-decoration: none;
-  color: rgb(255, 255, 255);
-  letter-spacing: 2px;
-  font-weight: 600px;
-  transition: 0.6s;
-}
-.banner {
-  position: relative;
-  width: 100%;
-  height: 100vh;
-  background: url(https://i.pinimg.com/736x/82/9a/3f/829a3f1bbf624a8dfabc039760d8b367.jpg);
-}
-header.sticky > ul > li > a {
-  color: rgb(255, 255, 255);
-}
-span {
-  position: absolute;
-  top: 44%;
-  left: 30%;
-  transform: translate(-50%, -50%);
-  color: #fff;
-  font-size: 24px;
-  font-weight: bold;
-}
-.bontut2 {
-  position: absolute;
-  top: 88%;
-  left: 21%;
-  transform: translate(-50%, -50%);
-  color: #fff;
-  font-size: 24px;
-  font-weight: bold;
-}
-.bontut2 > button {
-  border-radius: 2rem;
-  border-radius: 2rem;
-  height: 63px;
-  color: #1b74e4 !important;
-  width: 259px;
-  /* box-sizing: border-box; */
-  border: 1px solid #fbfbfb;
-  font-weight: unset;
-  font-family: inherit;
-}
-.bontut2 > button:hover {
-  background-color: #cbdae7;
-  border-color: #cbdae7;
-  border-radius: 800px;
-  border-style: solid;
-  border-width: 1px;
-  box-shadow: #cbdae7 0px 0px 0px 2px;
-  color: #1b74e4;
-  display: inline-block;
-  font-family: inherit;
-  line-height: 24px;
-  margin: 0px 0px 8px;
-  padding: 14px 30px;
-  text-align: center;
-  transition: all 0.2s ease 0s;
-  text-decoration: none !important;
-}
-.text-while {
-  top: 28%;
-  left: 29%;
-}
-.text-while-li-ad {
-  left: 30%;
-  top: 54%;
-}
-.text-banner {
-  font-family: "Popins", sans-serif;
-  position: relative;
-  margin: 0 15px;
-  text-decoration: none;
-  color: rgb(255, 255, 255);
-  letter-spacing: 1px;
-  font-weight: 100;
-  transition: 0.6s;
-  font-size: xxx-large;
-}
-.text-while-li {
-  font-family: "Popins", sans-serif;
-  position: relative;
-  margin: 0 15px;
-  text-decoration: none;
-  color: rgb(255, 255, 255);
-  letter-spacing: 1px;
-  font-weight: 100;
-  transition: 0.6s;
-  font-size: medium;
-  margin-top: 9%;
-}
-.text-while-li > li {
-  margin-top: 13px;
-}
-.slider {
-  width: 630px;
-  height: 350px;
-  border-radius: 10px;
-  overflow: hidden;
-  float: right;
-  margin-top: 13%;
-  margin-right: 5%;
-}
-.slides {
-  width: 500%;
-  height: 500px;
-  display: flex;
-}
-.slides > input {
-  display: none;
-}
-.slide {
-  width: 20%;
-  transition: 2s;
-}
-.slide > img {
-  width: 634px;
-  height: 362px;
-}
-.navigation-manual {
-  position: absolute;
-  width: 629px;
-  margin-top: -171px;
-  display: flex;
-  justify-content: center;
-}
-.manual-btn {
-  border: 2px solid #40d3dc;
-  padding: 5px;
-  border-radius: 10px;
-  cursor: pointer;
-  transition: 1s;
-}
-.manual-btn:not(:last-child) {
-  margin-right: 40px;
-}
-.manual-btn:hover {
-  background-color: #40d3dc;
-}
-#radio1:checked ~ .first {
-  margin-left: 0;
-}
-#radio2:checked ~ .first {
-  margin-left: -20%;
-}
-#radio3:checked ~ .first {
-  margin-left: -40%;
-}
-#radio4:checked ~ .first {
-  margin-left: -60%;
-}
-.navigation-auto {
-  position: absolute;
-  display: flex;
-  width: 629px;
-  justify-content: center;
-  margin-top: 329px;
-}
-.navigation-auto > div {
-  border: 2px solid #40d3dc;
-  padding: 5px;
-  border-radius: 10px;
-  transition: 1s;
-}
-.navigation-auto div:not(:last-child) {
-  margin-right: 40px;
-}
-#radio1:checked _ .navigation-auto .auto-btn1 {
-  background-color: #40d3dc;
-}
-#radio1:checked _ .navigation-auto .auto-btn2 {
-  background-color: #40d3dc;
-}
-#radio1:checked _ .navigation-auto .auto-btn3 {
-  background-color: #40d3dc;
-}
-#radio1:checked _ .navigation-auto .auto-btn4 {
-  background-color: #40d3dc;
-}
-.texbook-baner {
-  background-color: rgb(255, 247, 247);
-  height: 50%;
-  display: flex;
-  justify-content: center;
-}
-.img-left {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: rgb(255, 255, 255);
-  width: 70%;
-  padding: 20px;
-}
-.img-baner {
-  background-color: #1d69c9;
-  width: 73%;
-  height: 73%;
-  border-radius: 39px;
-  margin-right: 0px;
-}
+    figure.zoom img:hover {
+      opacity: 0;
+    }
 
-.img-baner > img {
-  width: 100%;
-  height: 100%;
-  border-radius: 40px;
-}
+    figure.zoom img {
+      transition: opacity 0.5s;
+      display: block;
+      width: 100%;
+    }
+    .zoom {
+      width: max-content;
+      position: relative;
+    }
+    .zoom img {
+      width: 500px;
+    }
+    #imgZoom {
+      position: absolute;
+      left: 0;
+      top: 0;
+      --zoom-x: 50%;
+      --zoom-y: 50%;
+      transform: scale(1.5);
+      pointer-events: none;
+      clip-path: circle(100px at var(--zoom-x) var(--zoom-y));
+      opacity: 0;
+    }
+  </style>
+  <body>
+    <div class="slider">
+      <div class="slides">
+        <input type="radio" name="radio-btn" id="radio1" />
+        <input type="radio" name="radio-btn" id="radio2" />
+        <input type="radio" name="radio-btn" id="radio3" />
+        <input type="radio" name="radio-btn" id="radio4" />
 
-.text-right {
-  flex-grow: 1;
-}
-.text-right > p {
-  margin-left: 20%;
-  margin-right: 20%;
-}
-.text-right > h1 {
-  margin-left: 20%;
-  margin-right: 20%;
-}
-.text-right > button {
-  margin-left: 20%;
-  margin-right: 20%;
-  background-color: 40d3dc;
-  height: 5%;
-  width: 15%;
-  font-weight: 800;
-  border-radius: 10px;
-  border: 2px solid #40d3dc;
-  display: inline-block;
-  transition: all 0.2s ease 0s;
-  text-decoration: none !important;
-}
-.text-right > button:hover {
-  background-color: #a0ace2;
-  border-color: #a0ace2;
-  border-style: solid;
-  border-width: 1px;
-  box-shadow: #a0ace2 0px 0px 0px 2px;
-  color: #000000;
-  display: inline-block;
-  font-family: inherit;
-  line-height: 24px;
-
-  text-align: center;
-  transition: all 0.2s ease 0s;
-  text-decoration: none !important;
-}
-.zoom{
-  width: max-content;
-  position: relative;
-}
-.zoom-img{
-  width: 700px;
-}
-.zoom-img:last-child(2){
-  position: absolute;
-  top: 0;
-  left: 0;
-  transform: scale(1.5);
-}
-.zoom{
-  --zoom-x: 50%;
-  --zoom-y: 50%;
-  --zoom-show: none;
-}
-.zoom-img:last-child(2){
-pointer-events: none;
-clip-path: circle(100px at var(--zoom-x) var(--zoom-y));
-display: var(--zoom-show);
-}
-</style>
-<body>
-</div>
-<div class="slider">
-  <div class="slides">
-    <input type="radio" name="radio-btn" id="radio1" />
-    <input type="radio" name="radio-btn" id="radio2" />
-    <input type="radio" name="radio-btn" id="radio3" />
-    <input type="radio" name="radio-btn" id="radio4" />
-
-    <div class="zoom" class="slide first">
-      <img class="zoom-img" src="img/book7.avif" alt="" />
+        <div class="zoom" class="slide first">
+          <img src="img/book7.avif" alt="" />
+          <img src="img/book7.avif" id="imgZoom" alt="" />
+        </div>
+        <div class="zoom" class="slide">
+          <img src="img/book6.avif" alt="" />
+          <img src="img/book6.avif" id="imgZoom" alt="" />
+        </div>
+        <div class="zoom" class="slide">
+          <img src="img/book5.avif" alt="" />
+          <img src="img/book5.avif" id="imgZoom" alt="" />
+        </div>
+        <div class="zoom" class="slide">
+          <img src="img/book8.avif" alt="" />
+          <img src="img/book8.avif" id="imgZoom" alt="" />
+        </div>
+        <div class="navigation-auto">
+          <div class="auto--btn1"></div>
+          <div class="auto--btn2"></div>
+          <div class="auto--btn3"></div>
+          <div class="auto--btn4"></div>
+        </div>
+      </div>
+      <div class="navigation-manual">
+        <label for="radio1" class="manual-btn"></label>
+        <label for="radio2" class="manual-btn"></label>
+        <label for="radio3" class="manual-btn"></label>
+        <label for="radio4" class="manual-btn"></label>
+      </div>
     </div>
-    <div class="zoom" class="zoom-img" class="slide">
-      <img src="img/book6.avif" alt="" />
-    </div>
-    <div class="zoom" class="zoom-img" class="slide">
-      <img src="img/book5.avif" alt="" />
-    </div>
-    <div class="zoom" class="zoom-img" class="slide">
-      <img src="img/book8.avif" alt="" />
-    </div>
-    <div class="navigation-auto">
-      <div class="auto--btn1"></div>
-      <div class="auto--btn2"></div>
-      <div class="auto--btn3"></div>
-      <div class="auto--btn4"></div>
-    </div>
-  </div>
+    <script>
+      window.addEventListener("scroll", function () {
+        var header = document.querySelector("header");
+        header.classList.toggle("sticky", window.scrollY > 0);
+      });
+      om = document.querySelector(".zoom");
+      let imgZoom = document.getElementById("imgZoom");
 
-  <div class="navigation-manual">
-    <label for="radio1" class="manual-btn"></label>
-    <label for="radio2" class="manual-btn"></label>
-    <label for="radio3" class="manual-btn"></label>
-    <label for="radio4" class="manual-btn"></label>
-  </div>
-</div>
-<script>
-    window.addEventListener("scroll",function(){
-    var header = document.querySelector("header");
-    header.classList.toggle("sticky",window.scrollY > 0);
-})
-let zoom = document.querySelector('.zoom');
-zoom.addEventListener('mousemove', (e) =>{
-  zoom.style.setProperty('--zoom-show', 'block');
-  let positionPx = e.x - zoom.getBoundingClientRect().left;
-  let positionPy = e.y - zoom.getBoundingClientRect().top;
-  let positionX = 100 * positionPx / zoom.offsetWidth;
-  let positionY = 100 * positionPy / zoom.offsetHeight;
-  zoom.style.setProperty('--zoom-x', positionX + '%' );
-  zoom.style.setProperty('--zoom-X', positionY + '%' );
+      zoom.addEventListener("mousemove", (event) => {
+        imgZoom.style.opacity = 1;
+        let positionPx = event.x - zoom.getBoundingClientRect().left;
+        let positionX = (positionPx / zoom.offsetWidth) * 100;
 
-} )
-zoom.addEventListener('mouseout', ()=>{
-  zoom.style.setProperty('--zoom-show', 'none')
-})
-</script>
-</body>
+        let positionPy = event.y - zoom.getBoundingClientRect().top;
+        let positionY = (positionPy / zoom.offsetHeight) * 100;
+
+        imgZoom.style.setProperty("--zoom-x", positionX + "%");
+        imgZoom.style.setProperty("--zoom-y", positionY + "%");
+
+        let transformX = -(positionX - 50) / 3.5;
+        let transformY = -(positionY - 50) / 3.5;
+        imgZoom.style.transform = `scale(1.5) translateX(${transformX}%) translateY(${transformY}%)`;
+      });
+      zoom.addEventListener("mouseout", () => {
+        imgZoom.style.opacity = 0;
+      });
+    </script>
+  </body>
 </html>
