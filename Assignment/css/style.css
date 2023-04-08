@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap");
+
 * {
   margin: 0;
   padding: 0;
@@ -428,4 +429,337 @@ span {
   .swiper-navBtn {
     display: none;
   }
+}
+.snow-container {
+  position: fixed;
+  width: 100%;
+  max-width: 100%;
+  z-index: 99999;
+  pointer-events: none;
+  overflow: hidden;
+  top: 0;
+  height: 100%;
+}
+
+.snow {
+  display: block;
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  pointer-events: none;
+  -webkit-transform: translate3d(0, -100%, 0);
+  transform: translate3d(0, -100%, 0);
+  -webkit-animation: snow linear infinite;
+  animation: snow linear infinite;
+}
+
+.snow.foreground {
+  background-image: url("https://itexpress.vn/API/files/img/snow-medium.png");
+  -webkit-animation-duration: 15s;
+  animation-duration: 10s;
+}
+
+.snow.foreground.layered {
+  -webkit-animation-delay: 7.5s;
+  animation-delay: 7.5s;
+}
+
+.snow.middleground {
+  background-image: url(https://itexpress.vn/API/files/img/snow-medium.png);
+  -webkit-animation-duration: 20s;
+  animation-duration: 15s;
+}
+
+.snow.middleground.layered {
+  -webkit-animation-delay: 10s;
+  animation-delay: 10s;
+}
+
+.snow.background {
+  background-image: url(https://itexpress.vn/API/files/img/snow-medium.png);
+  -webkit-animation-duration: 25s;
+  animation-duration: 20s;
+}
+
+.snow.background.layered {
+  -webkit-animation-delay: 12.5s;
+  animation-delay: 12.5s;
+}
+
+@-webkit-keyframes snow {
+  0% {
+    -webkit-transform: translate3d(0, -100%, 0);
+    transform: translate3d(0, -100%, 0);
+  }
+
+  100% {
+    -webkit-transform: translate3d(5%, 100%, 0);
+    transform: translate3d(5%, 100%, 0);
+  }
+}
+
+@keyframes snow {
+  0% {
+    -webkit-transform: translate3d(0, -100%, 0);
+    transform: translate3d(0, -100%, 0);
+  }
+
+  100% {
+    -webkit-transform: translate3d(5%, 100%, 0);
+    transform: translate3d(5%, 100%, 0);
+  }
+}
+.about-us {
+  height: 73vh;
+  width: 100%;
+  padding: 63px 0;
+  background: #efefef;
+}
+.pic {
+  height: 100%;
+  width: 22%;
+  border-radius: 20px;
+}
+.about {
+  width: 1130px;
+  max-width: 85%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.text {
+  width: 540px;
+}
+.text h2 {
+  font-size: 90px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+.text h5 {
+  font-size: 22px;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+
+.text p {
+  font-size: 18px;
+  line-height: 25px;
+  letter-spacing: 1px;
+}
+.data {
+  margin-top: 30px;
+}
+.hire {
+  font-size: 18px;
+  background: #4070f4;
+  color: #fff;
+  text-decoration: none;
+  border: none;
+  padding: 8px 25px;
+  border-radius: 6px;
+  transition: 0.5s;
+}
+.hire:hover {
+  background: #000;
+  border: 1px solid #4070f4;
+}
+.register-form {
+  width: 49%;
+  padding: 2rem;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  height: 25%;
+  border-radius: 7px;
+}
+
+.register-form h2 {
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.input-row {
+  margin-bottom: 1.5rem;
+}
+.input-row input {
+  width: 100%;
+  border: 1px solid #ccc;
+  height: 54px;
+  line-height: 40px;
+  padding: 0 1rem;
+  outline: none;
+  transition: all 0.3s ease-out;
+}
+.input-row input:focus {
+  border: 1px solid #00bfa6;
+  outline: none;
+}
+.input__note textarea {
+  width: 100%;
+  min-height: 200px;
+  border: 1px solid #ccc;
+  user-select: none;
+  resize: none;
+  padding: 1rem;
+}
+.input__note textarea:focus {
+  border: 1px solid #00bfa6;
+}
+.input-row {
+  position: relative;
+}
+.input-row:last-child {
+  margin-bottom: 0;
+}
+.input-row.success input {
+  border-color: #2ecc71;
+}
+.input-row.error input {
+  border-color: #e74c3c;
+}
+.input-row small {
+  color: #e74c3c;
+  position: absolute;
+  bottom: -20px;
+  left: 0;
+  visibility: hidden;
+  font-size: 12px;
+}
+.input-row.error small {
+  visibility: visible;
+}
+.btn {
+  font-size: 12px;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  -ms-border-radius: 2px;
+  border-radius: 2px;
+  -webkit-transition: 0.5s;
+  -o-transition: 0.5s;
+  transition: 0.5s;
+  padding: 8px 15px !important;
+}
+#btn-register {
+  display: inline-block;
+  color: #fff;
+  background-color: #00bfa6;
+  border: 2px solid #00bfa6;
+  outline: 0;
+  cursor: pointer;
+  text-decoration: none !important;
+  position: relative;
+  z-index: 20;
+  overflow: hidden;
+  height: 12%;
+  width: 25%;
+}
+.form-rg {
+  text-align: -webkit-center;
+}
+footer {
+  position: relative;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #111;
+  height: auto;
+  width: 100vw;
+  font-family: "Open Sans";
+  padding-top: 40px;
+  color: #fff;
+}
+.footer-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+}
+.footer-content h3 {
+  font-size: 1.8rem;
+  font-weight: 400;
+  text-transform: capitalize;
+  line-height: 3rem;
+}
+.footer-content p {
+  max-width: 500px;
+  margin: 10px auto;
+  line-height: 28px;
+  font-size: 14px;
+}
+.socials {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1rem 0 3rem 0;
+}
+.socials li {
+  margin: 0 10px;
+}
+.socials a {
+  text-decoration: none;
+  color: #fff;
+}
+.socials a i {
+  font-size: 1.1rem;
+  transition: color 0.4s ease;
+}
+.socials a:hover i {
+  color: aqua;
+}
+
+.footer-bottom {
+  background: #111;
+  width: 100vw;
+  padding: 20px 0;
+  text-align: center;
+}
+.footer-bottom p {
+  font-size: 14px;
+  word-spacing: 2px;
+  text-transform: capitalize;
+}
+.footer-bottom span {
+  text-transform: uppercase;
+  opacity: 0.4;
+  font-weight: 200;
+}
+.clock {
+  position: relative;
+  width: 237px;
+  height: 77px;
+  margin: 50px auto;
+  background: #fff;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 60px;
+}
+
+.digit {
+  width: 50px;
+  height: 80px;
+  text-align: center;
+}
+
+.hour {
+  margin-right: 20px;
+  color: black;
+}
+
+.minute {
+  margin-right: 20px;
+  color: black;
+}
+
+.second {
+  color: red;
 }
