@@ -10,7 +10,7 @@ setInterval(function () {
   if (counter > 4) {
     counter = 1;
   }
-}, 5000);
+}, 2000);
 var swiper = new Swiper(".slide-content", {
   slidesPerView: 3,
   spaceBetween: 25,
