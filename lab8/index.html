@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    #controls button {
+      background-color: transparent;
+      border: none;
+      color: #fff;
+      cursor: pointer;
+      font-size: 20px;
+      margin-right: 10px;
+    }
+
+    #controls button:hover {
+      color: #ccc;
+    }
+  </style>
+  <body>
+    <video id="myVideo" width="640" height="360" controls>
+      <source
+        src="y2meta.com-How to make Responive card hover effect using HTML &  CSS-(144p).mp4"
+        type="video/mp4"
+      />
+      Your browser does not support the video tag.
+    </video>
+
+    <div id="controls">
+      <button id="playPauseBtn"><i class="fa fa-play"></i></button>
+      <button id="stopBtn"><i class="fa fa-stop"></i></button>
+      <button id="volumeUpBtn"><i class="fa fa-volume-up"></i></button>
+      <button id="volumeDownBtn"><i class="fa fa-volume-down"></i></button>
+      <button id="loopBtn"><i class="fa fa-repeat"></i></button>
+    </div>
+  </body>
+  <script>
+    var video = document.getElementById("myVideo");
+    var playPauseBtn = document.getElementById("playPauseBtn");
+    var stopBtn = document.getElementById("stopBtn");
+    var volumeUpBtn = document.getElementById("volumeUpBtn");
+    var volumeDownBtn = document.getElementById("volumeDownBtn");
+    var loopBtn = document.getElementById("loopBtn");
+
+    playPauseBtn.addEventListener("click", function () {
+      if (video.paused) {
+        video.play();
+        playPauseBtn.innerHTML = "<i class='fa fa-pause'></i>";
+      } else {
+        video.pause();
+        playPauseBtn.innerHTML = "<i class='fa fa-play'></i>";
+      }
+    });
+
+    stopBtn.addEventListener("click", function () {
+      video.pause();
+      video.currentTime = 0;
+      playPauseBtn.innerHTML = "<i class='fa fa-play'></i>";
+    });
+
+    volumeUpBtn.addEventListener("click", function () {
+      if (video.volume < 1) {
+        video.volume += 0.1;
+      }
+    });
+
+    volumeDownBtn.addEventListener("click", function () {
+      if (video.volume > 0) {
+        video.volume -= 0.1;
+      }
+    });
+
+    loopBtn.addEventListener("click", function () {
+      if (video.loop) {
+        video.loop = false;
+        loopBtn.style.color = "#fff";
+      } else {
+        video.loop = true;
+        loopBtn.style.color = "#ccc";
+      }
+    });
+  </script>
+</html>
