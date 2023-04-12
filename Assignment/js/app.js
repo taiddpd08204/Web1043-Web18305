@@ -125,3 +125,50 @@ function Dong_ho() {
   giay.innerHTML = Giay_hien_tai;
 }
 var Dem_gio = setInterval(Dong_ho, 1000);
+let zoom = document.querySelector('.zoom');
+let imgZoom = document.getElementById('imgZoom');
+
+zoom.addEventListener('mousemove', (event)=>{
+    imgZoom.style.opacity = 1;
+    let positionPx = event.x - zoom.getBoundingClientRect().left;
+    let positionX = (positionPx / zoom.offsetWidth) * 100;
+
+    let positionPy = event.y - zoom.getBoundingClientRect().top;
+    let positionY = (positionPy / zoom.offsetHeight) * 100;
+
+    imgZoom.style.setProperty('--zoom-x', positionX + '%');
+    imgZoom.style.setProperty('--zoom-y', positionY + '%');
+
+    let transformX = -(positionX - 50) / 3.5;
+    let transformY = - (positionY - 50) / 3.5;
+    imgZoom.style.transform = `scale(1.5) translateX(${transformX}%) translateY(${transformY}%)`;
+})
+zoom.addEventListener('mouseout', ()=>{
+    imgZoom.style.opacity = 0;
+})
+let endDate = new Date("10/04/2023 00:00:00").getTime();
+let check = setInterval(function(){
+    let now = new Date().getTime();
+    let distance = endDate - now;
+    let day = Math.floor(distance / (24*60*60*1000));
+    let hour = Math.floor((distance % (24*60*60*1000)) / (60* 60*1000));
+    let minute = Math.floor((distance % (60* 60*1000)) / (60*1000));
+    let seconds = Math.floor((distance % (60*1000)) / 1000);
+
+
+    document.getElementById('day').innerText = day;
+    document.getElementById('hour').innerText = hour;
+    document.getElementById('minute').innerText = minute;
+    document.getElementById('seconds').innerText = seconds;
+    if(distance <= 0){
+        clearInterval(check);
+    }
+}, 1000);
+
+
+
+// begin ms
+// 1s = 1000 ms
+// 1p = 60s = 60*1000 ms
+// 1h = 60p = 60*60 s = 60* 60* 1000 ms
+// 1d = 24h = 24*60p = 24*60*60s = 24*60*60*1000 ms 

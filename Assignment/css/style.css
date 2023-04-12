@@ -1,5 +1,8 @@
 @import url("https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap");
 
+html {
+  scroll-behavior: smooth;
+}
 * {
   margin: 0;
   padding: 0;
@@ -59,7 +62,7 @@ header > ul > li > a {
   position: relative;
   width: 100%;
   height: 100vh;
-  background: url(Beig\ Orange\ Modern\ Minimalist\ Cloud\'s\ Book\ Report\ Presentation\ \(10\).jpg);
+  background: url(https://anhdepfree.com/wp-content/uploads/2018/12/White-Wallpaper-hinh-nen-trang-31.jpg);
 }
 header.sticky > ul > li > a {
   color: rgb(255, 255, 255);
@@ -84,32 +87,17 @@ span {
 }
 .bontut2 > button {
   border-radius: 2rem;
-  border-radius: 2rem;
   height: 63px;
   color: white !important;
   width: 259px;
-  /* box-sizing: border-box; */
-  border: 1px solid #42b883;
-  font-weight: unset;
-  font-family: inherit;
+  box-shadow: 0 5px 0 #6bdda9;
+  border: cornsilk;
   background-color: #42b883;
+  transform: 1s;
 }
-.bontut2 > button:hover {
-  background-color: #42b883;
-  border-color: #42b883;
-  border-radius: 800px;
-  border-style: solid;
-  border-width: 1px;
-  box-shadow: #42b883 0px 0px 0px 2px;
-  color: white;
-  display: inline-block;
-  font-family: inherit;
-  line-height: 24px;
-  margin: 0px 0px 8px;
-  padding: 14px 30px;
-  text-align: center;
-  transition: all 0.2s ease 0s;
-  text-decoration: none !important;
+.bontut2 > button:active {
+  box-shadow: none;
+  transform: translateY(5px);
 }
 .text-while {
   top: 28%;
@@ -331,8 +319,8 @@ span {
   position: relative;
   row-gap: 5px;
   /* padding: 87px 0; */
-  padding-top: 34px;
-  padding-bottom: 77px;
+  padding-top: 22px;
+  padding-bottom: 3px;
   /* width: 100%; */
   /* height: 116%; */
 }
@@ -368,10 +356,10 @@ span {
   padding: 3px;
 }
 .card-image .card-img {
-  height: 136%;
+  height: 100%;
   width: 100%;
   object-fit: cover;
-  border-radius: 1%;
+  border-radius: 50%;
   border: 1px solid #4070f4;
 }
 .name {
@@ -387,16 +375,18 @@ span {
 .button-slider {
   border: none;
   font-size: 16px;
+  box-shadow: 0 5px 0 #6bdda9;
   color: #fff;
   padding: 8px 16px;
-  background-color: #4070f4;
+  background-color: #42b883;
   border-radius: 6px;
   margin: 14px;
   cursor: pointer;
   transition: all 0.3s ease;
 }
-.button-slider:hover {
-  background: #265df2;
+.button-slider:active {
+  box-shadow: none;
+  transform: translateY(5px);
 }
 
 .swiper-navBtn {
@@ -578,6 +568,8 @@ span {
   height: 28%;
   border-radius: 7px;
   margin-top: 20px;
+  float: left;
+  margin-left: 10%;
 }
 
 .register-form h2 {
@@ -661,7 +653,13 @@ span {
   z-index: 20;
   overflow: hidden;
   height: 12%;
+  transform: 1s;
   width: 25%;
+  box-shadow: 0 5px 0 #6bdda9;
+}
+#btn-register:active {
+  box-shadow: none;
+  transform: translateY(5px);
 }
 .form-rg {
   text-align: -webkit-center;
@@ -865,10 +863,99 @@ footer {
   transition: all 0.2s ease-in-out;
 }
 .container:hover > .cardS:not(:hover) .cardS-bg {
-  filter: brightness(0.5) blur(10px);
+  filter: brightness(0.7) blur(10px);
 }
 .img-box {
   height: 100%;
   width: 90%;
   border-radius: 10px;
+}
+.img-box:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+.zoomx {
+  min-height: 61vh;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.zoom {
+  width: max-content;
+  position: relative;
+}
+.zoom img {
+  border-radius: 10px;
+  width: 372px;
+}
+#imgZoom {
+  position: absolute;
+  left: 0;
+  top: 0;
+  --zoom-x: 50%;
+  --zoom-y: 50%;
+  transform: scale(1.5);
+  pointer-events: none;
+  clip-path: circle(100px at var(--zoom-x) var(--zoom-y));
+  opacity: 0;
+}
+.bodyd {
+  margin: 0;
+  min-height: 82vh;
+  font-family: system-ui;
+  color: #eee;
+  background-image: linear-gradient(to bottom right, #197d9f, #493f6f);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.containerd {
+  text-align: center;
+}
+.logod img {
+  width: 49%;
+}
+.h1d {
+  font-size: xxx-large;
+  font-weight: 100;
+}
+.time .item {
+  position: relative;
+  background-image: repeating-linear-gradient(
+    to right bottom,
+    #7a7a7a 0px,
+    #7a7a7a 1px,
+    transparent 1px,
+    transparent 8px
+  );
+}
+.time {
+  display: grid;
+  grid-template-columns: 100px 100px 100px 100px;
+  column-gap: 20px;
+  grid-template-rows: 100px;
+}
+#day,
+#hour,
+#minute,
+#seconds {
+  font-size: xxx-large;
+  font-weight: bold;
+}
+.time .item::before,
+.time .item::after {
+  position: absolute;
+  width: 6px;
+  height: 20px;
+  background-color: #212121;
+  content: "";
+  left: 0;
+  top: 50%;
+  transform: translate(0, -50%);
+}
+.time .item::after {
+  left: unset;
+  right: 0;
 }
