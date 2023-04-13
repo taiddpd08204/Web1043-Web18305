@@ -1,87 +1,79 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Video Player</title>
+    <style>
+      /* CSS cho video player */
+      #videoPlayer {
+        width: 100%;
+        margin: 0 auto;
+        height: 100%;
+      }
+    </style>
   </head>
-  <style>
-    #controls button {
-      background-color: transparent;
-      border: none;
-      color: rgb(251, 17, 17);
-      cursor: pointer;
-      font-size: 200px;
-      height: 100%;
-      width: 100%;
-    }
-
-    #controls button:hover {
-      color: rgb(230, 35, 35);
-    }
-  </style>
   <body>
-    <video id="myVideo" width="640" height="360" controls>
-      <source
-        src="y2meta.com-How to make Responive card hover effect using HTML &  CSS-(144p).mp4"
-        type="video/mp4"
-      />
-      Your browser does not support the video tag.
-    </video>
-
-    <div id="controls">
-      <button id="playPauseBtn"><i class="fa fa-play"></i></button>
-      <button id="stopBtn"><i class="fa fa-stop"></i></button>
-      <button id="volumeUpBtn"><i class="fa fa-volume-up"></i></button>
-      <button id="volumeDownBtn"><i class="fa fa-volume-down"></i></button>
-      <button id="loopBtn"><i class="fa fa-repeat"></i></button>
+    <video id="video" src="y2meta.com-How to make Responive card hover effect using HTML &amp;  CSS-(144p).mp4" style="
+    height: 100%;
+    width: 67%;
+"></video>
+      <button id="playBtn">Play</button>
+      <button id="pauseBtn">Pause</button>
+      <button id="stopBtn">Stop</button>
+      <button id="volumeUpBtn">Volume Up</button>
+      <button id="volumeDownBtn">Volume Down</button>
+      <button id="loopBtn">Loop: Off</button>
     </div>
-  </body>
-  <script>
-    var video = document.getElementById("myVideo");
-    var playPauseBtn = document.getElementById("playPauseBtn");
-    var stopBtn = document.getElementById("stopBtn");
-    var volumeUpBtn = document.getElementById("volumeUpBtn");
-    var volumeDownBtn = document.getElementById("volumeDownBtn");
-    var loopBtn = document.getElementById("loopBtn");
 
-    playPauseBtn.addEventListener("click", function () {
-      if (video.paused) {
+    <script>
+      // Lấy đối tượng video và các nút điều khiển từ DOM
+      const video = document.getElementById("video");
+      const playBtn = document.getElementById("playBtn");
+      const pauseBtn = document.getElementById("pauseBtn");
+      const stopBtn = document.getElementById("stopBtn");
+      const volumeUpBtn = document.getElementById("volumeUpBtn");
+      const volumeDownBtn = document.getElementById("volumeDownBtn");
+      const loopBtn = document.getElementById("loopBtn");
+
+      // Sự kiện click nút Play
+      playBtn.addEventListener("click", () => {
         video.play();
-        playPauseBtn.innerHTML = "<i class='fa fa-pause'></i>";
-      } else {
+      });
+
+      // Sự kiện click nút Pause
+      pauseBtn.addEventListener("click", () => {
         video.pause();
-        playPauseBtn.innerHTML = "<i class='fa fa-play'></i>";
-      }
-    });
+      });
 
-    stopBtn.addEventListener("click", function () {
-      video.pause();
-      video.currentTime = 0;
-      playPauseBtn.innerHTML = "<i class='fa fa-play'></i>";
-    });
+      // Sự kiện click nút Stop
+      stopBtn.addEventListener("click", () => {
+        video.pause();
+        video.currentTime = 0;
+      });
 
-    volumeUpBtn.addEventListener("click", function () {
-      if (video.volume < 1) {
-        video.volume += 0.1;
-      }
-    });
+      // Sự kiện click nút Tăng âm lượng
+      volumeUpBtn.addEventListener("click", () => {
+        if (video.volume < 1) {
+          video.volume += 0.1;
+        }
+      });
 
-    volumeDownBtn.addEventListener("click", function () {
-      if (video.volume > 0) {
-        video.volume -= 0.1;
-      }
-    });
+      // Sự kiện click nút Giảm âm lượng
+      volumeDownBtn.addEventListener("click", () => {
+        if (video.volume > 0) {
+          video.volume -= 0.1;
+        }
+      });
 
-    loopBtn.addEventListener("click", function () {
-      if (video.loop) {
-        video.loop = false;
-        loopBtn.style.color = "#fff";
-      } else {
-        video.loop = true;
-        loopBtn.style.color = "#ccc";
-      }
-    });
-  </script>
+      // Sự kiện click nút Tắt/Bật chức năng lặp lại (Loop)
+      loopBtn.addEventListener("click", () => {
+        if (video.loop) {
+          video.loop = false;
+          loopBtn.textContent = "Loop: Off";
+        } else {
+          video.loop = true;
+          loopBtn.textContent = "Loop: On";
+        }
+      });
+    </script>
+  </body>
 </html>
